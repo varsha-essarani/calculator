@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add an internal CSS to apply the layouts to the selected elements -->
+    <style>
+        input[type=text], select {
+            width: 20%;
+            padding: 10px 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=button] {
+            width: 170px;
+            height: 40px;
+            background-color: #3498DB;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-image: linear-gradient(to bottom right,#B7950B,#F7DC6F);
+        }
+
+        div {
+            border-radius: 20px;
+            background-color: #E2E2E2;
+            padding: 30px;
+        }
+
+        p {
+            margin-bottom:25px;
+            font-size:20px;
+        }
+
+        #refreshing {
+            margin-left:25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <!--Creating an HTML form-->
+        <form>
+            <p>
+                Enter the first number:&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num1"/>
+            </p>
+            <p>
+                Enter the second number:<input type="number" id="num2" />
+            </p><br>
+            <p>
+            <!--Add an onclick command that would call a (JS code) subroutine to add the two numbers-->
+            <input type="button" value="Add The Two Numbers" onclick="addNumbers();" />
+            <!--The below command button refreshes the page when clicked-->
+            <input type="button" value="Refresh The Page" onClick="window.location.reload(true)" id="refreshing">
+            </p>
+            <!-- Insert a JavaScript inside the form to add the input numbers. -->
+            <script type="text/javascript">
+                function addNumbers()
+                {
+                    // Capture the entered values of two input boxes
+                    var num1 = document.getElementById("num1").value;
+                    var num2 = document.getElementById("num2").value;
+
+                    // Add them together and display
+                    var sum = parseInt(num1) + parseInt(num2);
+                    //document.write("The sum of the numbers is: " + sum);
+                    document.getElementById("thisPage").innerHTML = "The sum of the two numbers is: " + sum;
+                }
+            </script>
+        </form>
+        <p id="thisPage">
+        </p>
+    </div>
+
+</body>
+</html>
